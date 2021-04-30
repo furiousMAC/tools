@@ -9,11 +9,11 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 os=$(uname)
-filename=$(date --utc +%Y%m%d-%H%M%SZ)-ble.pcapng
+filename=$(date -u +%Y%m%d-%H%M%SZ)-ble.pcapng
 
 if [ "$os" == "Darwin" ]; then
         echo '[+] macOS OS detected'
-	dev="/dev/tty.usbmodem*"
+	dev="/dev/cu.usbmodem*"
 elif [ "$os" == "Linux" ]; then
         echo '[+] Linux OS detected'
 	dev="/dev/ttyACM0"
